@@ -28,7 +28,19 @@ import Paragraph from '@ckeditor/ckeditor5-paragraph/src/paragraph';
 import PasteFromOffice from '@ckeditor/ckeditor5-paste-from-office/src/pastefromoffice';
 import Table from '@ckeditor/ckeditor5-table/src/table';
 import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar';
-import TextTransformation from '@ckeditor/ckeditor5-typing/src/texttransformation';
+import Base64UploadAdapter from '@ckeditor/ckeditor5-upload/src/adapters/base64uploadadapter';
+import Underline from '@ckeditor/ckeditor5-basic-styles/src/underline';
+import Strikethrough from '@ckeditor/ckeditor5-basic-styles/src/strikethrough';
+import Code from '@ckeditor/ckeditor5-basic-styles/src/code';
+import Subscript from '@ckeditor/ckeditor5-basic-styles/src/subscript';
+import Superscript from '@ckeditor/ckeditor5-basic-styles/src/superscript';
+import Title from '@ckeditor/ckeditor5-heading/src/title';
+import Highlight from '@ckeditor/ckeditor5-highlight/src/highlight';
+import HorizontalLine from '@ckeditor/ckeditor5-horizontal-line/src/horizontalline';
+import ImageResize from '@ckeditor/ckeditor5-image/src/imageresize';
+import LinkImage from '@ckeditor/ckeditor5-link/src/linkimage';
+import PageBreak from '@ckeditor/ckeditor5-page-break/src/pagebreak';
+import Alignment from '@ckeditor/ckeditor5-alignment/src/alignment';
 
 export default class ClassicEditor extends ClassicEditorBase {}
 
@@ -56,7 +68,21 @@ ClassicEditor.builtinPlugins = [
 	PasteFromOffice,
 	Table,
 	TableToolbar,
-	TextTransformation
+	Base64UploadAdapter,
+	Autoformat,
+	Underline,
+	Superscript,
+	Subscript,
+	Code,
+	Strikethrough,
+	Title,
+	Highlight,
+	HorizontalLine,
+	LinkImage,
+	ImageResize,
+	PageBreak,
+	Alignment,
+	
 ];
 
 // Editor configuration.
@@ -65,19 +91,22 @@ ClassicEditor.defaultConfig = {
 		items: [
 			'heading',
 			'|',
-			'bold',
-			'italic',
+			'bold', 'italic', 'underline', 'strikethrough', 'code','subscript', 'superscript',
 			'link',
+			'highlight',
 			'bulletedList',
 			'numberedList',
+			'alignment',
 			'|',
 			'indent',
 			'outdent',
+			'horizontalLine',
 			'|',
 			'imageUpload',
 			'blockQuote',
 			'insertTable',
 			'mediaEmbed',
+			'pageBreak',
 			'undo',
 			'redo'
 		]
@@ -87,7 +116,8 @@ ClassicEditor.defaultConfig = {
 			'imageStyle:full',
 			'imageStyle:side',
 			'|',
-			'imageTextAlternative'
+			'imageTextAlternative',
+			'linkImage'
 		]
 	},
 	table: {
